@@ -19,6 +19,8 @@ A synced folder remains a local workflow. Do not switch to its remote copy midwa
 
 ## Optional live capabilities
 
+Before a local runtime command, determine whether the command environment can reach the host's loopback server without invoking `sb` as a probe. A blocked sandbox or VM can make `sb` launch another desktop process even while SilverBullet is open. In Codex, request outside-sandbox execution for each command that contacts the local space (`exec_command` with `sandbox_permissions: "require_escalated"`) or use an explicitly configured loopback permission. `sb --help` and `sb space ls` do not contact that server. In Cowork, use an available host-side connector; `127.0.0.1` inside its VM refers to the VM. If neither is available, continue with local files where possible and report that live queries are unavailable. Do not run or retry runtime commands in the blocked environment.
+
 For live operations, check `sb --help`, inspect `sb space ls`, and select an explicit `--space` matching this folder. Listing is human-readable; do not assume `--json` works for it or rely on the CLI's sole-space fallback. Ask if the match is ambiguous.
 
 Use `sb --space notes query 'from t = index.tasks() where not t.done limit 20' --json` for indexed tasks. Queries and Lua require a runtime; file editing does not. Native `sb open /absolute/path/Page.md` is available only in CLI builds that advertise it. Register/open a folder only when the user's request calls for it, rather than as a prerequisite to editing text.

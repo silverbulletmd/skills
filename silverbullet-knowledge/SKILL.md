@@ -5,6 +5,8 @@ description: Use when creating or maintaining a SilverBullet knowledge space, in
 
 # Maintain a knowledge space
 
+For live `sb` operations against a local desktop space, determine whether the command environment can reach the host's loopback server without invoking `sb` as a probe. A blocked sandbox or VM can make `sb` repeatedly launch the app even when it is open. In Codex, request outside-sandbox execution for each command that contacts the local space (`exec_command` with `sandbox_permissions: "require_escalated"`) or use an explicitly configured loopback permission. `sb --help` and `sb space ls` do not contact that server. In Cowork, use an available host-side connector; `127.0.0.1` inside its VM refers to the VM. If neither is available, work on accessible local files where appropriate and report that live operations are unavailable. Do not run or retry runtime commands in the blocked environment.
+
 Read the selected space's operating manual and the shared [silverbullet-markdown skill](../silverbullet-markdown/SKILL.md). For an accessible folder use file tools; for remote-only files inspect `sb space ls`, select explicit `--space` or user-provided `--url`, and use `sb fs read/edit/write` with revision-aware changes. Do not assume the working directory or sole saved connection is the intended space.
 
 ## Establish conventions

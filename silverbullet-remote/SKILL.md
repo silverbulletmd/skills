@@ -5,6 +5,8 @@ description: Use when reading or editing a SilverBullet space with no accessible
 
 # Remote SilverBullet spaces
 
+Check where `sb` executes before connecting. A remote HTTPS space needs permitted network access; a localhost space needs access to the host's loopback server. Determine access without invoking a runtime-backed `sb` command as a probe: a blocked sandbox or VM can make it launch another desktop process. In Codex, request outside-sandbox execution for each command that contacts a local space (`exec_command` with `sandbox_permissions: "require_escalated"`) or use an explicitly configured loopback permission. `sb --help` and `sb space ls` do not contact that server. In Cowork, use an available host-side connector; `127.0.0.1` inside its VM refers to the VM. If the execution environment cannot reach the selected space, do not run or retry those commands there; report the limitation rather than treating it as an empty space.
+
 Use the existing `sb` CLI. Confirm commands with `sb --help` and `sb fs --help`. Inspect `sb space ls` and select an explicit `--space`; alternatively use the exact user-provided space URL with `--url`. A localhost URL does not imply accessible local files. Keep secrets out of examples and output; prefer saved authentication. Use `sb space login <name>` when reauthentication is needed and let the user complete browser sign-in.
 
 Read the space's operating manual through `sb fs read` and the shared [silverbullet-markdown skill](../silverbullet-markdown/SKILL.md). Paths are space-relative filenames, including `.md`; wiki links omit that suffix.

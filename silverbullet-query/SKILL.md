@@ -5,6 +5,8 @@ description: Use when answering questions about indexed SilverBullet pages, task
 
 # Query SilverBullet
 
+Before querying a local desktop space, determine whether the command environment can reach the host's loopback runtime without invoking `sb` as a probe. A blocked sandbox or VM can make `sb` repeatedly launch the app even when it is already open. In Codex, request outside-sandbox execution for each command that contacts the local space (`exec_command` with `sandbox_permissions: "require_escalated"`) or use an explicitly configured loopback permission. `sb --help` and `sb space ls` do not contact that server. In Cowork, use an available host-side connector; `127.0.0.1` inside its VM refers to the VM. If neither is available, do not run or retry the live query there; report that the index is unavailable from this environment.
+
 Inspect `sb --help` and `sb space ls`; select an explicit `--space` or user-provided `--url`. Do not infer the target from an unrelated cwd or the sole configured space. For local work, confirm the connection corresponds to the folder; for remote work, no local copy is required. Read the selected space's operating manual with file tools or `sb fs read`.
 
 Queries require the runtime and its index. Inspect a small sample of indexed objects to discover available fields, including custom attributes:
