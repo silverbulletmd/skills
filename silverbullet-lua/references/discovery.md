@@ -24,6 +24,6 @@ rg -n 'system.reboot' "$sb_source_dir/client" "$sb_source_dir/plugs" "$sb_source
 
 When the server's version or revision is known, prefer its corresponding tag/commit; use `--branch <verified-tag>` for a tagged shallow clone. `sb version` identifies the CLI and is not proof of the remote server version. Default-branch source may differ from the installed runtime; say so when drawing conclusions.
 
-Search `docs/API/`, `libraries/Library/Std/`, `client/plugos/syscalls/`, `client/space_lua/`, `plugs/`, and nearby tests. Read the implementation and relevant tests for the specific API. SilverBullet.md source does not contain SilverBullet+-only APIs; inspect those through the installed `Library/Plus` documentation instead.
+Search `docs/API/`, `libraries/Library/Std/`, `client/plugos/syscalls/`, `client/space_lua/`, `plugs/`, and nearby tests. Read the implementation and relevant tests for the specific API. SilverBullet Server source does not contain Desktop-only APIs; inspect those through the installed `Library/Desktop` documentation instead.
 
 Keep the clone as reference material. Do not build, run setup scripts, or edit the source to solve a space scripting question. If network access is unavailable, state the unresolved detail and use available documentation rather than guessing.

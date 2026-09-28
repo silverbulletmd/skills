@@ -7,7 +7,7 @@ Portable LLM skills for working with SilverBullet through ordinary file tools an
 | `silverbullet-markdown` | Shared Markdown conventions, links, metadata, tasks, and embedded code |
 | `silverbullet-local` | A space folder accessible to the assistant, including synced folders |
 | `silverbullet-remote` | A space without an accessible local file copy, including localhost-only access |
-| `silverbullet-query` | Index schemas, SLIQ, tasks/tags/relations, optional SilverBullet+ semantic search |
+| `silverbullet-query` | Index schemas, SLIQ, tasks/tags/relations, optional Desktop semantic search |
 | `silverbullet-lua` | API discovery, Space Lua authoring, runtime verification, source inspection |
 | `silverbullet-knowledge` | Knowledge-space setup, ingestion, synthesis, and maintenance |
 | `silverbullet-mentions` | Indexed mention queues and authored replies |
@@ -28,7 +28,7 @@ For manual installation, download or clone this repository and follow the direct
 
 ## Prerequisites and manual installation
 
-Local Markdown editing needs file tools only. Remote file operations need an `sb` build with `fs` commands and a reachable configured space. Queries, Lua, and mentions additionally need the Runtime API. Check `sb --help` and subcommand help; `sb` is distinct from the SilverBullet.md server executable. Native folder registration/opening depends on CLI build support. Semantic search is optional and specific to SilverBullet+.
+Local Markdown editing needs file tools only. Remote file operations need an `sb` build with `fs` commands and a reachable configured space. Queries, Lua, and mentions additionally need the Runtime API. Check `sb --help` and subcommand help; `sb` is distinct from the SilverBullet Server executable. Native folder registration/opening depends on CLI build support. Semantic search is optional and specific to SilverBullet Desktop's premium features.
 
 Mentions require a runtime with the `identity.mentions` API. The skills need no Python runner or custom Lua scripts.
 

@@ -15,7 +15,7 @@ For a new space, establish purpose, location/connection, and useful page types f
 
 Use readable page names, wiki links, a small stable tag vocabulary, and source provenance. Preserve existing directory layout and formatting. Read the shared [silverbullet-markdown skill](../silverbullet-markdown/SKILL.md) for frontmatter and tag scope. Keep facts and explanations in durable prose; dynamic dashboards are an optional enhancement.
 
-For a requested new local SilverBullet+ space, inspect `sb space add --help` and `sb open --help` and use the available folder registration/open commands. A newly registered folder may need opening before it has a usable server port. Check existing registrations before adding; current registration can reject duplicates. Plain local notes need no registration. Remote connection setup can be interactive and require user sign-in; do not create a local substitute when the user requested a remote space.
+For a requested new local SilverBullet Desktop space, inspect `sb space add --help` and `sb open --help` and use the available folder registration/open commands. A newly registered folder may need opening before it has a usable server port. Check existing registrations before adding; current registration can reject duplicates. Plain local notes need no registration. Remote connection setup can be interactive and require user sign-in; do not create a local substitute when the user requested a remote space.
 
 ## Maintain the space
 

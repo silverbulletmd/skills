@@ -1,6 +1,6 @@
-# Optional SilverBullet+ semantic search
+# Optional SilverBullet Desktop semantic search
 
-Use when the user wants conceptual matches or related pages and the feature is already available. The APIs are supplied through `Library/Plus` after Space Lua loads. Do not install a library, enable a feature, or download models merely because the namespace is missing.
+Use when the user wants conceptual matches or related pages and the feature is already available. The APIs are supplied through `Library/Desktop` after Space Lua loads. Semantic search is a SilverBullet+ premium feature in SilverBullet Desktop. Do not install a library, enable a feature, or download models merely because the namespace is missing.
 
 ```sh
 sb --space notes eval 'type(semanticSearch) == "table"' --json
