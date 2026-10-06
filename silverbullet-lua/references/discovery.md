@@ -8,7 +8,7 @@ sb --space notes eval 'spacelua.describe("space.readPage")' --json
 sb --space notes eval 'spacelua.renderApiDocumentation("space")' --text
 ```
 
-Call `spacelua.listFunctions()` without an argument to discover documented globals when the namespace is unknown. Prefer a relevant namespace over dumping every API. Follow returned `see` references to documentation accessible in the help space or published docs; those pages need not exist in the user's own space.
+When the namespace is unknown, `sb eval 'table.keys(_G)'` lists global names, namespaces included, and `spacelua.listFunctions()` without an argument lists documented global functions. Prefer a relevant namespace over dumping every API. Follow returned `see` references to documentation accessible in the help space or published docs; those pages need not exist in the user's own space.
 
 A nil `spacelua.describe` result means the target is not a recognized function, not permission to invent its parameters. `spacelua.describe("editor")` does not return namespace documentation in the current API. For custom functions, `---` Lua documentation and `@param`, `@return`, `@see`, and `@deprecated` annotations can expose structured metadata.
 

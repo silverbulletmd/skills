@@ -39,7 +39,7 @@ Orchard tracks the planting proposal.
 * [x] Inventory tools #work
 ```
 
-Space-separated bare names are the concise frontmatter `tags` convention. YAML arrays are also supported; preserve the space's chosen style. Quote wiki links in YAML values.
+Space-separated bare names are the concise frontmatter `tags` convention. YAML arrays are also supported; preserve the space's chosen style. Quote wiki links in YAML values, and any value containing `: ` (for example `command: "Books: Add Book"`); unquoted, it is invalid YAML.
 
 Hashtag scope matters: a paragraph containing only hashtags tags the page; a hashtag in ordinary prose tags that paragraph; one on an item or task tags that object. Tags such as `#project` and `#status/blocked` are useful query categories. Page and ancestor tags may also be inherited by contained objects; distinguish explicit `tags` from inherited `itags` when querying.
 

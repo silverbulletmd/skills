@@ -11,7 +11,7 @@ Select the target with `sb space ls` and explicit `--space` (or a user-provided 
 
 ## Discover before implementing
 
-Use the live API documentation rather than guessing names or signatures:
+Use the live API documentation rather than guessing names or signatures. The "Explore your space" section of `sb --help` lists the discovery calls, including `system.listCommands()` for registered commands:
 
 ```sh
 sb --space notes eval 'spacelua.listFunctions("editor")' --json

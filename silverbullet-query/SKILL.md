@@ -9,7 +9,7 @@ Before querying a local desktop space, determine whether the command environment
 
 Inspect `sb --help` and `sb space ls`; select an explicit `--space` or user-provided `--url`. Do not infer the target from an unrelated cwd or the sole configured space. For local work, confirm the connection corresponds to the folder; for remote work, no local copy is required. Read the selected space's operating manual with file tools or `sb fs read`.
 
-Queries require the runtime and its index. Inspect a small sample of indexed objects to discover available fields, including custom attributes:
+Queries require the runtime and its index. The "Explore your space" section of `sb --help` lists calls for the space's tags (`index.tags()`), a tag's schema (`index.tagSchema`), and the SLIQ reference. Inspect a small sample of indexed objects to discover available fields, including custom attributes:
 
 ```sh
 sb --space notes query 'from t = index.tasks() limit 3 select t' --json
