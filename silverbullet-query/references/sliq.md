@@ -36,7 +36,7 @@ select {page=key, count=#group}
 order by count desc
 ```
 
-String helpers include `s:startsWith("x")` and `s:contains("x")`; use nil checks for optional attributes. `table.includes(t, value)` checks membership. Project `{page=t.page, task=t.name, ref=t.ref}` rather than dumping every attribute.
+String helpers include `s:startsWith("x")` and `s:endsWith("x")`; for a substring test use `s:find("x", 1, true)` (plain match, nil when absent; there is no `contains`); use nil checks for optional attributes. `table.includes(t, value)` checks membership. Project `{page=t.page, task=t.name, ref=t.ref}` rather than dumping every attribute.
 
 ## CLI versus embedded queries
 

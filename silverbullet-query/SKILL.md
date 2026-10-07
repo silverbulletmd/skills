@@ -15,7 +15,7 @@ Queries require the runtime and its index. The "Explore your space" section of `
 sb --space notes query 'from t = index.tasks() limit 3 select t' --json
 ```
 
-Fields absent from the sample may exist on other objects; narrow samples to the relevant tag or pages.
+Fields absent from the sample may exist on other objects; narrow samples to the relevant tag or pages. A row lacking a field shows `"field": null`, so null means absent, not an error. A collection such as `index.pages("book")` evaluated directly returns all its rows (at most 1000, then a `"<truncated: …>"` entry) and functions appear as markers like `"<function>"`; query with `where`, `limit` and `select` for the fields you need instead. Use `==` to compare in `where`; `=` is a syntax error.
 
 Read [SLIQ](references/sliq.md) before constructing a query. Pass just the query body to `sb query`:
 

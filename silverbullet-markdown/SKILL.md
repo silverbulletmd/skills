@@ -39,7 +39,7 @@ Orchard tracks the planting proposal.
 * [x] Inventory tools #work
 ```
 
-Space-separated bare names are the concise frontmatter `tags` convention. YAML arrays are also supported; preserve the space's chosen style. Quote wiki links in YAML values, and any value containing `: ` (for example `command: "Books: Add Book"`); unquoted, it is invalid YAML.
+When structuring a set of similar pages (people, incidents, books), give every page of that kind the same tag (for example `tags: incident`), not just consistent attributes: the tag is what makes the class queryable as `index.pages("incident")` or `tags.incident`. Space-separated bare names are the concise frontmatter `tags` convention. YAML arrays are also supported; preserve the space's chosen style. Quote wiki links in YAML values, and any value containing `: ` (for example `command: "Books: Add Book"`); unquoted, it is invalid YAML.
 
 Hashtag scope matters: a paragraph containing only hashtags tags the page; a hashtag in ordinary prose tags that paragraph; one on an item or task tags that object. Tags such as `#project` and `#status/blocked` are useful query categories. Page and ancestor tags may also be inherited by contained objects; distinguish explicit `tags` from inherited `itags` when querying.
 
@@ -80,3 +80,25 @@ ${orchard.label()}
 ````
 
 SLIQ inside Lua uses `query[[from p = index.pages() limit 5 select p.name]]`; inline Markdown uses `${query[[...]]}`. Keep essential facts in ordinary prose rather than only in computed output. Space Lua can perform mutations; do not evaluate untrusted page code just to read or summarize it. Inspect live API documentation before authoring nontrivial scripts or queries.
+
+## Styling a kind of page
+
+To give every page with a tag a distinct look, style the class rather than decorating each page by hand: attach a CSS class through the tag, then target it from a `space-style` block. Put the `tag.define` in `CONFIG` (create it if missing): `CONFIG` loads before pages are indexed, and a `transform` defined on any other page misses pages indexed before it loads, so they stay undecorated until a reindex.
+
+````markdown
+```space-lua
+tag.define {
+  name = "recipe",
+  transform = function(o)
+    o.pageDecoration = { icon = "coffee", cssClasses = { "recipe-page" } }
+    return o
+  end
+}
+```
+
+```space-style
+body.recipe-page #sb-main .cm-editor { border-left: 4px solid #c0603a; }
+```
+````
+
+The class lands on `<body>`, page links and picker entries for tagged pages; `system.reboot()` picks up the new style. For widgets, dashboards and more styling hooks, see the [silverbullet-lua skill's interface guide](../silverbullet-lua/references/ui.md).
