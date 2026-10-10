@@ -5,6 +5,14 @@ description: Use when reviewing or responding to SilverBullet mentions or commen
 
 # Work with mentions
 
+When a task needs `sb`, check availability with `command -v sb`. If it is missing, install the edge CLI:
+
+```sh
+curl -fsSL https://silverbullet.md/install-sb.sh | sh -s -- --edge
+```
+
+Follow any PATH instructions printed by the installer, then verify with `sb --help` before continuing. Local file-only work does not require installation.
+
 Before fetching mentions from a local desktop space, determine whether the command environment can reach the host's loopback runtime without invoking `sb` as a probe. A blocked sandbox or VM can make `sb` repeatedly launch the app even when it is open. In Codex, request outside-sandbox execution for each command that contacts the local space (`exec_command` with `sandbox_permissions: "require_escalated"`) or use an explicitly configured loopback permission. `sb --help` and `sb space ls` do not contact that server. In Cowork, use an available host-side connector; `127.0.0.1` inside its VM refers to the VM. If neither is available, do not run or retry the lookup there; report that the mention queue cannot be verified from this environment.
 
 Confirm the space and recipient from the user's request or the space's operating manual. Use explicit `--space` (after `sb space ls`) or the user-provided `--url`. Do not assume the runtime account identity is the assistant's identity. Read the space manual locally or through `sb fs read`.

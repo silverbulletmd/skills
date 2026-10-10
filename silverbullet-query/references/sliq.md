@@ -26,6 +26,8 @@ select {page=p.name, owner=p.owner}
 
 Clauses include `where`, `order by`, `group by`, `having`, `select`, `limit`, and `offset`. Explore with a limit, and use stable ordering when paging; index changes during pagination can affect results.
 
+Results are always distinct: rows that are equal after `select` appear once. `select {status=t.status}` gives one row per status, so counting its rows gives 1 each. To count, use `group by` with `#group` (below) or count rows that keep an identifying field such as `name` or `ref`.
+
 After grouping, `key` is the group key and `group` is the row array:
 
 ```sliq

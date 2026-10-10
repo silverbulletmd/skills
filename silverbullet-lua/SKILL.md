@@ -5,6 +5,14 @@ description: Use when writing, inspecting, or debugging SilverBullet Space Lua f
 
 # Space Lua
 
+When a task needs `sb`, check availability with `command -v sb`. If it is missing, install the edge CLI:
+
+```sh
+curl -fsSL https://silverbullet.md/install-sb.sh | sh -s -- --edge
+```
+
+Follow any PATH instructions printed by the installer, then verify with `sb --help` before continuing. Local file-only work does not require installation.
+
 Before calling a local desktop runtime, determine whether the command environment can reach the host's loopback server without invoking `sb` as a probe. A blocked sandbox or VM can make `sb` repeatedly launch the app even when it is already open. In Codex, request outside-sandbox execution for each command that contacts the local space (`exec_command` with `sandbox_permissions: "require_escalated"`) or use an explicitly configured loopback permission. `sb --help` and `sb space ls` do not contact that server. In Cowork, use an available host-side connector; `127.0.0.1` inside its VM refers to the VM. If neither is available, keep local file work separate and report that live evaluation is unavailable. Do not run or retry runtime commands in the blocked environment.
 
 Select the target with `sb space ls` and explicit `--space` (or a user-provided `--url`). Local file editing can work offline; Lua execution needs the selected space's runtime. Read the space's operating manual and the shared [silverbullet-markdown skill](../silverbullet-markdown/SKILL.md) when editing pages. Inspect `sb --help` before using unfamiliar commands.

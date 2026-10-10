@@ -97,8 +97,8 @@ tag.define {
 ```
 
 ```space-style
-body.recipe-page #sb-main .cm-editor { border-left: 4px solid #c0603a; }
+body.recipe-page #sb-main .cm-editor { border-left: 4px solid var(--tone-accent); }
 ```
 ````
 
-The class lands on `<body>`, page links and picker entries for tagged pages; `system.reboot()` picks up the new style. For widgets, dashboards and more styling hooks, see the [silverbullet-lua skill's interface guide](../silverbullet-lua/references/ui.md).
+The class lands on `<body>`, page links and picker entries for tagged pages; `system.reboot()` picks up the new style. Prefer the tone colours (`var(--tone-success)`, `warning`, `danger`, `info`, `neutral`, `accent`, each with a `-soft` variant) over fixed colours: they work in light and dark mode. For widgets, dashboards and more styling hooks, see the [silverbullet-lua skill's interface guide](../silverbullet-lua/references/ui.md).

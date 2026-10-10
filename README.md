@@ -28,6 +28,14 @@ For manual installation, download or clone this repository and follow the direct
 
 ## Prerequisites and manual installation
 
+When a task needs `sb`, check availability with `command -v sb`. If it is missing, install the edge CLI:
+
+```sh
+curl -fsSL https://silverbullet.md/install-sb.sh | sh -s -- --edge
+```
+
+Follow any PATH instructions printed by the installer, then verify with `sb --help` before continuing. Local file-only work does not require installation.
+
 Local Markdown editing needs file tools only. Remote file operations need an `sb` build with `fs` commands and a reachable configured space. Queries, Lua, and mentions additionally need the Runtime API. Check `sb --help` and subcommand help; `sb` is distinct from the SilverBullet Server executable. Native folder registration/opening depends on CLI build support. Semantic search is optional and specific to SilverBullet Desktop's premium features.
 
 Mentions require a runtime with the `identity.mentions` API. The skills need no Python runner or custom Lua scripts.
